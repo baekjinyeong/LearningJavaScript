@@ -124,9 +124,9 @@ X : false, Y : false 일 경우 X && Y : false
 X : true, Y : true 일 경우 X && Y : true
 
 OR(||)
-X : false, Y : false 일 경우 X && Y : false
-X : false, Y : true 일 경우 X && Y : true
-X : true, Y : true 일 경우 X && Y : true
+X : false, Y : false 일 경우 X || Y : false
+X : false, Y : true 일 경우 X || Y : true
+X : true, Y : true 일 경우 X || Y : true
 
 NOT(!)
 X : false, !X : true
