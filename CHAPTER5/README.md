@@ -208,6 +208,18 @@ var now = new Date();
 var greeting = "Good" + ((now.getHours() > 17) ? " evening." : " day.");
 // 현재 시각이 오후 6시 이후이면 이 예제는 "Good evening."이라는 문자열을 만든다.
 ```
+- 제어문 패턴
+** if...else 문을 3항 연산자로 바꾸기**
+```js
+if(isPrime(n)){
+    label = 'prime';
+} else {
+    label = 'non-prime';
+};
+
+// 3항 연산자로 바꾸기
+label = isPrime(n) ? 'prime' : 'none-prime';
+```
 
 ### 5.8.3 쉼표연산자
 쉼표연산자는 표현식을 결합하여 두 표현식을 평가한 후, 두번째 표현식의 결과를 반환한다.
@@ -350,10 +362,5 @@ a; // 1
 b; // 2
 ```
 ## 5.11 객체와 배열 연산자
-## 5.12 템플릿 문자열과 표현식
-## 5.13 표현식과 흐름 제어 패턴
-
-### 5.13.1 if...else 문을 3항 연산자로 바꾸기
-### 5.13.1 if...else 문을 단축평가하는 OR표현식으로 바꾸기
 
 
