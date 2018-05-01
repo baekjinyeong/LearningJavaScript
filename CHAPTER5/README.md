@@ -179,7 +179,7 @@ var greeting = "Good" + ((now.getHours() > 17) ? " evening." : " day.");
 
 // 현재 시각이 오후 6시 이후이면 이 예제는 "Good evening."이라는 문자열을 만든다.
 ```
-    - 제어문 패턴 `if...else 문을 3항 연산자로 바꾸기`
+`제어문 패턴 if...else 문을 3항 연산자로 바꾸기`
 ```js
 if(isPrime(n)){
     label = 'prime';
