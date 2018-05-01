@@ -179,17 +179,6 @@ var greeting = "Good" + ((now.getHours() > 17) ? " evening." : " day.");
 
 // 현재 시각이 오후 6시 이후이면 이 예제는 "Good evening."이라는 문자열을 만든다.
 ```
-`제어문 패턴 if...else 문을 3항 연산자로 바꾸기`
-```js
-if(isPrime(n)){
-    label = 'prime';
-} else {
-    label = 'non-prime';
-};
-
-// 3항 연산자로 바꾸기
-label = isPrime(n) ? 'prime' : 'none-prime';
-```
 
 - 8.4 쉼표연산자
     - 쉼표연산자는 표현식을 결합하여 두 표현식을 평가한 후, 두번째 표현식의 결과를 반환한다.
@@ -202,6 +191,7 @@ z = (x++, y++)
 ```
 
     - for 반복문 안에서 각각의 시간에 복수의 변수들을 갱신하기 위하여 사용된다.
+
 ```js
 for (var i = 0, j = 9; i <= j; i++, j--)
   console.log("a[" + i + "][" + j + "]= " + a[i][j]);
@@ -333,4 +323,22 @@ a; // 1
 b; // 2
 ```
 
+# 11. 표현식과 흐름 제어 패턴
+    - 11. 1 if...else 문을 3항 연산자로 바꾸기
+```js
+if(isPrime(n)){
+    label = 'prime';
+} else {
+    label = 'non-prime';
+};
 
+// 3항 연산자로 바꾸기
+label = isPrime(n) ? 'prime' : 'none-prime';
+```
+    - 11.2 if 문을 단축평가하는 OR 표현식으로 바꾸기
+```js
+if(!options) options = {};
+
+// 단축평가
+options = options || {};
+```
