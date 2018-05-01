@@ -324,7 +324,9 @@ b; // 2
 ```
 
 # 11. 표현식과 흐름 제어 패턴
-    - 11. 1 if...else 문을 3항 연산자로 바꾸기
+
+- 11.1 if...else 문을 3항 연산자로 바꾸기
+
 ```js
 if(isPrime(n)){
     label = 'prime';
@@ -335,7 +337,8 @@ if(isPrime(n)){
 // 3항 연산자로 바꾸기
 label = isPrime(n) ? 'prime' : 'none-prime';
 ```
-    - 11.2 if 문을 단축평가하는 OR 표현식으로 바꾸기
+- 11.2 if 문을 단축평가하는 OR 표현식으로 바꾸기
+
 ```js
 if(!options) options = {};
 
