@@ -220,11 +220,10 @@ typeof foo;       // returns "string"
 typeof symbol;    // returns "symbol"
 ```
 
-> **NOTE** 
-> Symbol()
-> ES6에서 새로운 기본 유형인 Symbol 도입
-> 이는 String함수로 호출 된 경우 문자열 반환 과 유사하다.
-> 반환 된 모든 심볼 Symbol()은 고유하며 모든 심볼은 고유 한 ID를 가진다.
+**Symbol** 
+- es6 에서 도입되었다.
+- 유일하고 변경 불가능한 (immutable) 기본값 (primitive value) 이다. 
+- 객체 속성의 key 값으로도 사용될 수 있다.
 
 - 9.2 void 연산자
     - `undefined`를 반환하도록 설계되어 있는 장소에, `undefined` 반환값을 가질 수 있는 식을 삽입할 경우에 사용
