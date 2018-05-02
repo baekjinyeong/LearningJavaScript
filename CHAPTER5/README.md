@@ -237,7 +237,7 @@ typeof symbol;    // returns "symbol"
 - 9.3 할당연산자
     - 오른쪽 피연산자의 값을 왼쪽의 피연산자에 할당
 
-- 덧셈할당
+1. 덧셈할당
 ```js
 //  foo = "foo"
 //  bar = 5
@@ -262,7 +262,7 @@ foo += false // "foofalse"
 foo += "bar" // "foobar"
 ```
 
-1. 뺄셈할당
+2. 뺄셈할당
 ```js
 //  bar = 5
 
@@ -270,7 +270,7 @@ bar -= 2     // 3
 bar -= "foo" // NaN
 ```
 
-2. 곱셈 할당
+3. 곱셈 할당
 ```js
 //  bar = 5
 
@@ -278,7 +278,7 @@ bar *= 2     // 10
 bar *= "foo" // NaN
 ```
 
-3. 나눗셈 할당
+4. 나눗셈 할당
 ```js
 //  bar = 5
 
@@ -287,7 +287,7 @@ bar /= "foo" // NaN
 bar /= 0     // Infinity
 ```
 
-4. 나머지 연산 할당
+5. 나머지 연산 할당
 ```js
 //  bar = 5
 
