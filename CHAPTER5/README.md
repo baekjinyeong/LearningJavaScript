@@ -220,7 +220,7 @@ typeof foo;       // returns "string"
 typeof symbol;    // returns "symbol"
 ```
 
-**Symbol** 
+> **Symbol :** 
 > es6 에서 도입되었다.
 > 유일하고 변경 불가능한 (immutable) 기본값 (primitive value) 이다. 
 > 객체 속성의 key 값으로도 사용될 수 있다.
