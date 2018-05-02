@@ -190,13 +190,6 @@ z = (x++, y++)
 // 쉼표연산자는 우선순위가 가장 낮은 연산자이므로 괄호를 사용.
 ```
 
-    - for 반복문 안에서 각각의 시간에 복수의 변수들을 갱신하기 위하여 사용된다.
-
-```js
-for (var i = 0, j = 9; i <= j; i++, j--)
-  console.log("a[" + i + "][" + j + "]= " + a[i][j]);
-```
-
 # 9. 연산자 그룹
 
 - 9.1 비트연산자
@@ -323,9 +316,29 @@ a; // 1
 b; // 2
 ```
 
-# 11. 표현식과 흐름 제어 패턴
+# 11. 템플릿 문자열과 표현식
 
-- 11.1 if...else 문을 3항 연산자로 바꾸기
+- 템플릿 문자열을 생성하려면 작은따옴표나 큰따옴표 대신에 역따옴표(`)를 사용하여 문자열을 묶는다.
+
+```js
+function buildURL(strArray, ...valArray) {  
+    console.log(strArray.raw);  
+}  
+
+var lang = "en-us";  
+var a = "library";  
+var b = "dn771551.aspx";  
+
+// Call the tagged template function.  
+var url = buildURL`http://msdn.microsoft.com/${lang}/${a}/${b}`;  
+
+// Ouput:
+// http://msdn.microsoft.com/library/dn771551.aspx
+```
+
+# 12. 표현식과 흐름 제어 패턴
+
+- 12.1 if...else 문을 3항 연산자로 바꾸기
 
 ```js
 if(isPrime(n)){
@@ -337,7 +350,7 @@ if(isPrime(n)){
 // 3항 연산자로 바꾸기
 label = isPrime(n) ? 'prime' : 'none-prime';
 ```
-- 11.2 if 문을 단축평가하는 OR 표현식으로 바꾸기
+- 12.2 if 문을 단축평가하는 OR 표현식으로 바꾸기
 
 ```js
 if(!options) options = {};
