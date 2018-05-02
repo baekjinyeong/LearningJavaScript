@@ -172,15 +172,23 @@ const result = foo || bar++; // 단축평가가 일어남
 >피연산자가 참같은 값이면 false, 거짓같은 값이면 true 반환
 
 - 8.3 조건연산자
-    - 자바스크립트의 유일한 3항 연산자이다.
-
-    - 3항연산자는 문이 아니라 표현식이므로 다른 표현식과 결합하여 사용할 수 있다.
+    - 세 개의 피연산 함수를 취할 수 있는 유일한 자바스크립트 연산자이다.
+    - if 문의 축약형으로 빈번히 사용된다.
+    - 삼항 연산자는 if / else 문을 사용하는 함수를 반환하는 데 적합하다.
+    - 다중 삼항(ternary) 평가도 가능하다.
 ```js
-const foo = false;
-const result = doIt? "Did it!" : "Didn't do it";
+function getFee(isMember) {
+  return (isMember ? "$2.00" : "$10.00");
+}
+```
 
-// 물음표 앞에 있는 첫번째 피연산자가 참 같은 값이면, "Did it!"
-// 물음표 앞에 있는 첫번째 피연산자가 거짓 같은 값이면, "Didn't do it"
+```js
+// 다중 삼항(ternary)
+var firstCheck = false,
+    secondCheck = false,
+    access = firstCheck ? "Access denied" : secondCheck ? "Access denied" : "Access granted";
+
+    // "Access granted"
 ```
 
 ```js
@@ -192,6 +200,9 @@ var greeting = "Good" + ((now.getHours() > 17) ? " evening." : " day.");
 
 - 8.4 쉼표연산자
     - 쉼표연산자는 표현식을 결합하여 두 표현식을 평가한 후, 두번째 표현식의 결과를 반환한다.
+    - for 루프의 증분 식에서 가장 일반적으로 사용
+    - , 연산자를 사용하면 여러 개의 식이 한 개의 식으로 처리되므로 두 변수 모두 증가할 수 있다.
+
 ```js
 let x = 0, y = 10, z;
 z = (x++, y++)
@@ -200,10 +211,17 @@ z = (x++, y++)
 // 쉼표연산자는 우선순위가 가장 낮은 연산자이므로 괄호를 사용.
 ```
 
+```js
+j=25;
+for (i = 0; i < 10; i++, j++)
+{
+   k = i + j;
+}
+```
+
 # 9. 연산자 그룹
 
-- 9.1 비트연산자
-- 9.2 typeof연산자
+- 9.1 typeof연산자
     - `typeof`  연산자는 다음과 같은 방법으로 사용된다.
 
         typeof operand
@@ -342,7 +360,7 @@ var a = "library";
 var b = "dn771551.aspx";  
 
 // Call the tagged template function.  
-var url = buildURL`http://msdn.microsoft.com/${lang}/${a}/${b}`;  
+var url = buildURL`http://msdn.microsoft.com/${lang}/${a}/${b}`;
 
 // Ouput:
 // http://msdn.microsoft.com/library/dn771551.aspx
@@ -362,6 +380,26 @@ if(isPrime(n)){
 // 3항 연산자로 바꾸기
 label = isPrime(n) ? 'prime' : 'none-prime';
 ```
+
+```js
+var func1 = function( .. ) {
+  if (condition1) { return value1 }
+  else if (condition2) { return value2 }
+  else if (condition3) { return value3 }
+  else { return value4 }
+}
+
+// 3항 연산자로 바꾸기
+var func2 = function( .. ) {
+  return condition1 ? value1
+       : condition2 ? value2
+       : condition3 ? value3
+       :              value4
+}
+
+// if / else 문을 대체하는 삼항연산자가 return을 여러 번 사용하고 if 블록 내부에서 한줄만 나올때 return을 대체 할 수 있는 좋은 방법이된다.
+```
+
 - 12.2 if 문을 단축평가하는 OR 표현식으로 바꾸기
 
 ```js
