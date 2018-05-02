@@ -221,9 +221,9 @@ typeof symbol;    // returns "symbol"
 ```
 
 **Symbol** 
-- es6 에서 도입되었다.
-- 유일하고 변경 불가능한 (immutable) 기본값 (primitive value) 이다. 
-- 객체 속성의 key 값으로도 사용될 수 있다.
+> es6 에서 도입되었다.
+> 유일하고 변경 불가능한 (immutable) 기본값 (primitive value) 이다. 
+> 객체 속성의 key 값으로도 사용될 수 있다.
 
 - 9.2 void 연산자
     - `undefined`를 반환하도록 설계되어 있는 장소에, `undefined` 반환값을 가질 수 있는 식을 삽입할 경우에 사용
