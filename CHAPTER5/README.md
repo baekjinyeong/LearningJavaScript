@@ -425,19 +425,17 @@ b; // 2
 - 전달되는 원시 문자열 값에 액세스해야 할 경우 태그가 지정된 템플릿 함수에 전달된 첫 번째 인수는 전달된 문자열의 원시 문자열 형식을 반환하는 raw 속성을 지원한다.
 
 ```js
-function buildURL(strArray, ...valArray) {  
-    console.log(strArray.raw);  
-}  
+//ES5
+var username = req.body.username
+if ( !username ) {
+    throw "'username' must required. Your input: " + username  + "."
+}
 
-var lang = "en-us";  
-var a = "library";  
-var b = "dn771551.aspx";  
-
-// Call the tagged template function.  
-var url = buildURL`http://msdn.microsoft.com/${lang}/${a}/${b}`;
-
-// Ouput:
-// http://msdn.microsoft.com/library/dn771551.aspx
+//ES6
+let {username} = req.body
+if ( !username ) {
+    throw `'username' must required. Your input: ${username}.`
+}
 ```
 
 # 표현식과 흐름 제어 패턴
