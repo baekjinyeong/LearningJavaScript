@@ -236,9 +236,18 @@ typeof symbol;    // returns "symbol"
 > 객체 속성의 key 값으로도 사용될 수 있다.
 
 - 9.2 void 연산자
-    - 해당 식을 계산하고 undefined를 반환한다.
-    - 식을 계산해야 하지만 결과를 스크립트의 나머지 부분에 보이지 않도록 하려는 경우에 유용하다.
-    - `javascript:void` 와 같은 프로토콜은 어디 까지나 이벤트 핸들러의 대안이므로 사용을 권장하지는 않는다.
+- void는 단항 undefined 연산자이다.
+- 해당 식을 계산하고 undefined를 반환한다. (피연산자로 무엇을 지정하든간에 연산의 결과는 undefined 값이 된다.)
+- `javascript:void` 와 같은 프로토콜은 어디 까지나 이벤트 핸들러의 대안이므로 사용을 권장하지는 않는다.
+
+```js
+// 피연산자가 숫자
+console.log(void 0); // undefined 가 기록
+
+// 피연산자가 문자열 
+console.log(void "문자열"); // undefined 가 기록
+```
+
 ```js
 <a href="javascript:void(0);">
   클릭해도 아무일도 일어나지 않는다.
@@ -347,6 +356,8 @@ foo; // 42
 bar; // true
 ```
 
+- es5 에서 es6으로 변환 예시
+
 ```js
 // es5
 var data = $(body).data(),
@@ -358,29 +369,35 @@ const data = $(body).data(),
     {house, mouse} = data;
 ```
 
+```js
+// es5
+var obj = { firstName: 'minsu', lastName: 'Lee' };
+
+var firstName = obj.firstName;
+var lastName  = obj.lastName;
+
+console.log(firstName, lastName); // minsu Lee
+
+// es6
+const obj = { firstName: 'minsu', lastName: 'Lee' };
+
+const { firstName, lastName } = obj;
+
+console.log(firstName, lastName); // minsu Lee
+```
+
 ### 배열해체
 
-- 배열을 해체할 때 변수 이름을 마음대로 쓸 수 있다.
 - 배열의 각 요소를 배열로부터 추출하여 변수 리스트에 할당한다. 추출/할당 기준은 배열의 인덱스이다.
 - 배열에서 필요한 요소만 추출하여 변수에 할당하고 싶은 경우에 유용하다.
 
 ```js
-// ES5
-var arr = [1, 2, 3];
+var foo = ["one", "two", "three"];
 
-var one   = arr[0];
-var two   = arr[1];
-var three = arr[2];
-
-console.log(one, two, three); // 1 2 3
-
-// ES6 배열해체
-const arr = [1, 2, 3];
-
-// 배열의 인덱스를 기준으로 배열로부터 요소를 추출하여 변수에 할당
-const [one, two, three] = arr;
-
-console.log(one, two, three); // 1 2 3
+var [one, two, three] = foo;
+console.log(one); // "one"
+console.log(two); // "two"
+console.log(three); // "three"
 ```
 
 - 확산연산자(...)를 사용하면 남은 요소를 새 배열에 할당할 수 있다.
@@ -433,6 +450,26 @@ var [a, ,b] = f();
 var [ , , ] = f();
 ```
 
+- es5 에서 es6으로 변환 예시
+
+```js
+// ES5
+var arr = [1, 2, 3];
+
+var one   = arr[0];
+var two   = arr[1];
+var three = arr[2];
+
+console.log(one, two, three); // 1 2 3
+
+// ES6 배열해체
+const arr = [1, 2, 3];
+
+// 배열의 인덱스를 기준으로 배열로부터 요소를 추출하여 변수에 할당
+const [one, two, three] = arr;
+
+console.log(one, two, three); // 1 2 3
+```
 
 # 템플릿 문자열과 표현식
 
