@@ -229,9 +229,7 @@ function myFunc () {
 # 연산자 그룹
 
 - 9.1 typeof연산자
-    - `typeof operand 또는 typeof (operand)`
-    - typeof 연산자는 피연산자의 타입을 나타내는 문자열을 반환한다.  
-    - `operand` 는 어떤 타입인지 반환될 문자열, 변수, 키워드,또는 객체이다. (괄호 표현은 선택사항)
+    - 데이터 타입을 반환하는 연산자
 
 ```js
 var myFun = new Function("5 + 2");
@@ -258,7 +256,8 @@ typeof symbol;    // returns "symbol"
 > 객체 속성의 key 값으로도 사용될 수 있다.
 
 - 9.2 void 연산자
-    - `undefined`를 반환하도록 설계되어 있는 장소에, `undefined` 반환값을 가질 수 있는 식을 삽입할 경우에 사용
+    - 해당 식을 계산하고 undefined를 반환한다.
+    - 식을 계산해야 하지만 결과를 스크립트의 나머지 부분에 보이지 않도록 하려는 경우에 유용하다.
     - `javascript:void` 와 같은 프로토콜은 어디 까지나 이벤트 핸들러의 대안이므로 사용을 권장하지는 않는다.
 ```js
 <a href="javascript:void(0);">
@@ -370,20 +369,30 @@ bar; // true
 
 ### 배열해체
 
-- 배열을 해체할 때 변수 이름을 마음대로 쓸 수 있으며, 이들은 배열 순서대로 대응한다.
+- 배열을 해체할 때 변수 이름을 마음대로 쓸 수 있다.
+- 배열의 각 요소를 배열로부터 추출하여 변수 리스트에 할당한다. 추출/할당 기준은 배열의 인덱스이다.
+- 배열에서 필요한 요소만 추출하여 변수에 할당하고 싶은 경우에 유용하다.
+
 ```js
-// 배열선언
-const arr = [1,2,3];
+// ES5
+var arr = [1, 2, 3];
 
-// 베열 해체 할당
-let [x,y] = arr;
-x; // 1
-y; // 2
-z; // ReferenceError : "z"는 정의되지 않았다.
+var one   = arr[0];
+var two   = arr[1];
+var three = arr[2];
 
-// x 는 첫번째 요소값을, y는 두번째 요소값을 할당.
-// 그 뒤의 요소는 모두 버려진다.
+console.log(one, two, three); // 1 2 3
+
+// ES6 배열해체
+const arr = [1, 2, 3];
+
+// 배열의 인덱스를 기준으로 배열로부터 요소를 추출하여 변수에 할당
+const [one, two, three] = arr;
+
+console.log(one, two, three); // 1 2 3
 ```
+
+- 확산연산자(...)를 사용하면 남은 요소를 새 배열에 할당할 수 있다.
 
 ```js
 // 배열선언
@@ -393,10 +402,10 @@ x; // 1
 y; // 2
 rest; // [3,4,5]
 
-// 확산연산자(...)를 사용하면 남은 요소를 새 배열에 할당할 수 있다.
 ```
 
 - 배열해체를 활용하면 변수의 값을 서로 바꿀 수 있다.
+
 ```js
 // 배열선언
 let a = 5, b = 10;
@@ -406,6 +415,7 @@ b; // 5
 ```
 
 - 함수가 배열을 반환하는 경우에 해체할당된 배열 값을 통해 작업을 간결하게 할 수 있다.
+
 ```js
 function f(){
     return [1,2];
@@ -418,11 +428,25 @@ a; // 1
 b; // 2
 ```
 
+- 일부 반환값 무시 / 모든 반환값 무시
+
+```js
+function f(){
+    return [1,2,3];
+}
+// 일부 반환값 무시
+var [a, ,b] = f();
+// a = 1, b = 3
+
+// 모든 반환값 무시
+var [ , , ] = f();
+```
+
+
 # 템플릿 문자열과 표현식
 
 - 템플릿 문자열을 생성하려면 작은따옴표나 큰따옴표 대신에 역따옴표(`)를 사용하여 문자열을 묶는다.
 - $ 문자는 템플릿 문자열 내에서 자리 표시자를 지정하는 데 사용된다.
-- 전달되는 원시 문자열 값에 액세스해야 할 경우 태그가 지정된 템플릿 함수에 전달된 첫 번째 인수는 전달된 문자열의 원시 문자열 형식을 반환하는 raw 속성을 지원한다.
 
 ```js
 //ES5
@@ -454,30 +478,56 @@ label = isPrime(n) ? 'prime' : 'none-prime';
 ```
 
 ```js
-var func1 = function( .. ) {
-  if (condition1) { return value1 }
-  else if (condition2) { return value2 }
-  else if (condition3) { return value3 }
-  else { return value4 }
+var func1 = function() {
+    if (condition1) {
+        return value1;
+    } else if (condition2) {
+        return value2;
+    } else if (condition3) {
+        return value3;
+    } else {
+        return value4;
+    }
 }
 
 // 3항 연산자로 바꾸기
-var func2 = function( .. ) {
-  return condition1 ? value1
-       : condition2 ? value2
-       : condition3 ? value3
-       :              value4
+var func2 = function() {
+  return condition1 ? value1 : condition2 ? value2 : condition3 ? value3 : value4
 }
 
-// if / else 문을 대체하는 삼항연산자가 return을 여러 번 사용하고,
+// if / else 문을 대체하는 삼항연산자가 return을 여러 번 사용하고, 
 // if 블록 내부에서 한줄만 나올때 return을 대체 할 수 있는 좋은 방법이된다.
 ```
 
 - 12.2 if 문을 단축평가하는 OR 표현식으로 바꾸기
 
 ```js
-if(!options) options = {};
+var a = ''; // 빈 문자열 (거짓 값)
 
-// 단축평가
-options = options || {};
+// es5
+if(a) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+// false
+
+// es6
+a = a || "false"; // false
+```
+
+```js
+var car = 'SM6';
+
+//es5
+if(car) {
+    console.log(car);
+} else {
+    console.log('BMw');
+}
+
+//es6
+car = car || 'BMW';
+console.log(car); // SM6
+// BMW
 ```
