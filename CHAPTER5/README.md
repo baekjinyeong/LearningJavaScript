@@ -275,9 +275,6 @@ baz += false // 1
 // 숫자 + 문자 -> 연결
 bar += "foo" // "5foo"
 
-// 문자 + 부울 -> 연결
-foo += false // "foofalse"
-
 // 문자 + 문자 -> 연결
 foo += "bar" // "foobar"
 ```
@@ -304,7 +301,6 @@ bar *= "foo" // NaN
 
 bar /= 2     // 2.5
 bar /= "foo" // NaN
-bar /= 0     // Infinity
 ```
 
 5. 나머지 연산 할당
@@ -313,7 +309,6 @@ bar /= 0     // Infinity
 
 bar %= 2     // 1
 bar %= "foo" // NaN
-bar %= 0     // NaN
 ```
 
 # 해체 할당
