@@ -392,12 +392,12 @@ console.log(firstName, lastName); // minsu Lee
 - 배열에서 필요한 요소만 추출하여 변수에 할당하고 싶은 경우에 유용하다.
 
 ```js
-var foo = ["one", "two", "three"];
+const arr = [1,2,3];
 
-var [one, two, three] = foo;
-console.log(one); // "one"
-console.log(two); // "two"
-console.log(three); // "three"
+let [x,y] = arr;
+x; // 1
+y; // 2
+z; // ReferenceError : "z" 는 정의되지 않았다.
 ```
 
 - 확산연산자(...)를 사용하면 남은 요소를 새 배열에 할당할 수 있다.
