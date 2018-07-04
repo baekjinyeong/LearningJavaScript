@@ -58,7 +58,27 @@
 	console.log( slice ); // Three, Four, Five
 	```
 - 임의의 위치에 요소 추가하거나 제거하기 **(splice)**
+	- arr.splice(start, b, item, item...);
+	- start 위치에서 지정된 수만큼(b) 요소를 제거하고, 새 요소를 삽입(item)한다.
+	```js
+	var arr = ["4", "11", "2", "10", "3", "1"];
+			arr.splice(2, 2, "21", "31");
+	
+	console.log(arr); // 4, 11, 21, 31, 1
+	```
 - 배열 안에서 요소 교체하기 **(copyWithin - es6 도입)**
+	- 배열의 일부를 복사한 뒤, 동일한 배열의 다른 위치에 덮어쓰기 한 다음, 배열 자신을 반환한다. (배열의 길이는 변하지 않음)
+	- arr.copyWithin(target, start, end)
+	```js
+	var arr = [1, 2, 3, 4, 5];
+	console.log(arr.copyWithin(-3, 0, -1));	// [1, 2, 1, 2, 3]
+	```
+
+	```js
+	var arr = [ 1, 2, 3, 4, 5, 6, 7 ];
+
+	console.log(array.copyWithin(0, 3, 6)); // [4, 5, 6, 4, 5, 6, 7]
+	```
 - 특정 값으로 배열 채우기 **(fill - es6 도입)**
 - 배열의 정렬 **(sort)**
 	- 모든 원소를 문자열로 취급해 정렬하기 때문에 비교 함수를 직접 만들어서 정렬 로직을 구현해야 한다.
