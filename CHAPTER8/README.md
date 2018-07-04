@@ -201,3 +201,22 @@
 ## 문자열 병합
 
 - **Array.prototype.join**
+	- 배열의 모든 요소를 연결해 하나의 문자열로 만든다.
+	```js
+	var arr = ["A", "B", "C"];
+	var number = 2;
+	var number2;
+
+	arr.push(number);
+
+	number2 = arr.join();
+	console.log(number2); // A,B,C,2
+	```
+
+	```js
+	var arr = ["A", "B", "C"];
+	var number = 2;
+	
+	arr.push(number);
+	console.log(...arr); // ["A", "B", "C", 2]
+	```
