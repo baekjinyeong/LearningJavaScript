@@ -38,7 +38,7 @@
 	console.log(array); // 1,2,3,4,5,6,7,8,9
 	```
 - 배열 일부 가져오기 **(slice)**
-	- `arr.slice(start, end)`
+	- arr.slice(start, end)
 	```js
 	var arr = [ 'One', 'Two', 'Three', 'Four', 'Five', 'Six' ],
 			slice = arr.slice( 1, 4 );
@@ -67,11 +67,13 @@
 	console.log(arr); // 4, 11, 21, 31, 1
 	```
 - 배열 안에서 요소 교체하기 **(copyWithin - es6 도입)**
-	- 배열의 일부를 복사한 뒤, 동일한 배열의 다른 위치에 덮어쓰기 한 다음, 배열 자신을 반환한다. (배열의 길이는 변하지 않음)
+	- 배열의 일부를 복사한 뒤, 동일한 배열의 다른 위치에 덮어쓰기 한 다음, 배열 자신을 반환한다.
+	-	배열의 길이는 변하지 않음
 	- arr.copyWithin(target, start, end)
 	```js
 	var arr = [1, 2, 3, 4, 5];
-	console.log(arr.copyWithin(-3, 0, -1));	// [1, 2, 1, 2, 3]
+
+	console.log(arr.copyWithin(-3, 0, -1)); // [1, 2, 1, 2, 3]
 	```
 
 	```js
@@ -80,6 +82,23 @@
 	console.log(array.copyWithin(0, 3, 6)); // [4, 5, 6, 4, 5, 6, 7]
 	```
 - 특정 값으로 배열 채우기 **(fill - es6 도입)**
+	- arr.fill (value, start, end)
+	- start 와 end 매개변수는 선택사항이며 기본값은 0 과 지정한 배열객체의 길이값이다.
+	- 만약 start 매개변수가 음수이면, start 의 값은 배열의 길이값을 합한 결과가 시작지점이다.
+	- 만약 end 가 음수라면, end 매개변수와 배열의 길이값을 합한 결과가 종료지점이다.
+	- 새 배열을 반환하지 않는다. 대신에이 함수가 적용된 배열을 수정한다.
+	```js
+	var arr = [1, 2, 3];
+	arr.fill(4); // [4,4,4]
+	```
+	```js
+	var arr = [1, 2, 3];
+	arr.fill(4, 1, 2); // [1, 4, 3]
+	```
+	```js
+	var arr = [1, 2, 3];
+	arr.fill(4, -3, -2) // [4, 2, 3]
+	```
 - 배열의 정렬 **(sort)**
 	- 모든 원소를 문자열로 취급해 정렬하기 때문에 비교 함수를 직접 만들어서 정렬 로직을 구현해야 한다.
 	```js
