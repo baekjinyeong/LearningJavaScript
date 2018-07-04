@@ -196,8 +196,6 @@
 
 - **reduce**
 
-## 삭제되거나 정의되지 않는 요소들
-
 ## 문자열 병합
 
 - **Array.prototype.join**
