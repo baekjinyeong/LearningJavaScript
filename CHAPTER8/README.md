@@ -195,6 +195,16 @@
 ## 배열의 마법 **reduce**
 
 - **reduce**
+	- 배열 전체를 다른 데이터타입으로 변형할 때 사용한다.
+	- 배열의 각 요소를 돌면서 콜백 함수를 반복적으로 적용하여 하나 값을 뽑아내는 함수이다.
+	```js
+	var arr = [1, 2, 3, 4, 5];
+	function add(acc, value) {
+		return acc + value;
+	}
+
+	arr.reduce(add, 0); // 15
+	```
 
 ## 문자열 병합
 
