@@ -202,6 +202,13 @@
 	console.log(filter); // [12, 130, 44]
 	```
 
+	```js
+	var arr = [1,1,3,3,0,1,1];
+	return arr.filter((val,index) => val != arr[index+1]); // [1, 3, 0, 1] var : 배열요소의 값, index : 배열요소의 숫자 인덱스
+
+}
+	```
+
 ## 배열의 마법 **reduce**
 
 - **reduce**
