@@ -269,14 +269,6 @@
 	console.log(number2); // A,B,C,2
 	```
 
-	```js
-	var arr = ["A", "B", "C"];
-	var number = 2;
-	
-	arr.push(number);
-	console.log(...arr); // ["A", "B", "C", 2]
-	```
-
 ## map, filter, reduce 비교
 ### map
 - 배열.filter((요소, 인덱스, 배열) => { return 요소 });
@@ -288,7 +280,7 @@
 - 필요없는 데이터를 걸러내기 위하여 사용
 	- 콜백함수를 통해 나온 참/거짓에 따라 데이터를 필터링 하는 역할
 
-### reduce 
+### reduce
 - 배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
 - **map** , **filter** 와 같이 반복적으로 함수에 데이터를 적용하는 것은 같으나, 최종결과를 단 하나의 값만을 구하고자 할 떄 주로 사용한다.
 - **초기값을 활용하여 map과 filter 같은 함수형 메서드를 구현할 수 있다.**
