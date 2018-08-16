@@ -190,6 +190,18 @@
 
 	console.log(newArray); // ["aaaNEW", "bbbNEW", "cccNEW", "dddNEW"] 생성된 배열
 	```
+
+	- 규칙적인 배열만 반환할 수 있는게 아니라, 함수 안에 적어준대로 반환할 수 있기 때문에 자유도가 높다.
+	```js
+	result = oneTwoThree.map((v) => {
+		if (v % 2) {
+			return '홀수';
+		}
+		return '짝수';
+	});
+	result; // ['홀수', '짝수', '홀수']
+	```
+
 - **filter**
 	- 배열에서 필요한 것들만 남길 목적으로 만들어졌다.
 	- 삭제됐거나 값이 할당된 적이 없는 인덱스에 대해서는 호출되지 않는다.
