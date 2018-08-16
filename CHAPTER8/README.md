@@ -206,9 +206,7 @@
 
 	```js
 	var arr = [1,1,3,3,0,1,1];
-	return arr.filter((val,index) => val != arr[index+1]); // [1, 3, 0, 1] var : 배열요소의 값, index : 배열요소의 숫자 인덱스
-
-}
+	return arr.filter((val,index) => val != arr[index+1]);
 	```
 
 ## 배열의 마법 **reduce**
@@ -226,22 +224,22 @@
 	arr.reduce(add, 0); // 15
 	```
 
+	- 초깃값을 배열로 만들고, 배열에 값들을 push하면 map과 같아진다.
 	```js
 	result = oneTwoThree.reduce((acc, cur) => {
 		acc.push(cur % 2 ? '홀수' : '짝수');
 		return acc;
 	}, []);
 	result; // ['홀수', '짝수', '홀수']
-	// 초깃값을 배열로 만들고, 배열에 값들을 push하면 map과 같아진다.
 	```
 
+	- 조건부로 push를 하면 filter와 같아진다.
 	```js
 	result = oneTwoThree.reduce((acc, cur) => {
 		if (cur % 2) acc.push(cur);
 		return acc;
 	}, []);
 	result; // [1, 3]
-	// 조건부로 push를 하면 filter와 같아진다.
 	```
 
 ## 문자열 병합
