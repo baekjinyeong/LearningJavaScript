@@ -178,10 +178,11 @@
 	- 요소를 일괄적으로 변경하는데 효과적이다.
 	- 일정한 형식의 배열을 다른 형식으로 바꿔야 할 때 사용한다.
 	- 콜백 함수의 리턴을 모아서 새로운 배열을 만드는 것이 목적이다.
+	- 배열.map((요소, 인덱스, 배열) => { return 요소 });
 	``` js
 	var testArray = ["aaa", "bbb", "ccc", "ddd"];
 
-	var newArray = testArray.map(function (item, index, array) {
+	var newArray = testArray.map(function (value, index, array) { 
 		return item + "NEW";
 	}); // 배열의 모든 요소에 NEW라는 문자열을 더하기, 리턴값은 새로운 배열
 
@@ -192,6 +193,7 @@
 - **filter**
 	- 배열에서 필요한 것들만 남길 목적으로 만들어졌다.
 	- 삭제됐거나 값이 할당된 적이 없는 인덱스에 대해서는 호출되지 않는다.
+	- 배열.filter((요소, 인덱스, 배열) => { return 요소 });
 	```js
 	var arr = [12, 5, 8, 130, 44];
 
@@ -214,6 +216,7 @@
 - **reduce**
 	- 배열 전체를 다른 데이터타입으로 변형할 때 사용한다.
 	- 배열의 각 요소를 돌면서 콜백 함수를 반복적으로 적용하여 하나 값을 뽑아내는 함수이다.
+	- 배열.reduce((누적값, 현잿값, 인덱스, 요소) => { return 결과 }, 초깃값);
 	```js
 	var arr = [1, 2, 3, 4, 5];
 	function add(acc, value) {
@@ -221,6 +224,24 @@
 	}
 
 	arr.reduce(add, 0); // 15
+	```
+
+	```js
+	result = oneTwoThree.reduce((acc, cur) => {
+		acc.push(cur % 2 ? '홀수' : '짝수');
+		return acc;
+	}, []);
+	result; // ['홀수', '짝수', '홀수']
+	// 초깃값을 배열로 만들고, 배열에 값들을 push하면 map과 같아진다.
+	```
+
+	```js
+	result = oneTwoThree.reduce((acc, cur) => {
+		if (cur % 2) acc.push(cur);
+		return acc;
+	}, []);
+	result; // [1, 3]
+	// 조건부로 push를 하면 filter와 같아진다.
 	```
 
 ## 문자열 병합
